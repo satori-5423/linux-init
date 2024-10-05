@@ -1,0 +1,7 @@
+set linenumbers
+set autoindent
+set zap
+set tabstospaces
+set tabsize 4
+set titlecolor white
+set numbercolor white
