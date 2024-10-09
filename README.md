@@ -28,7 +28,9 @@
 🗂️ [Logo Menu](#logo-menu)  
 🗂️ [Network Stats](#network-stats)  
 🗂️ [Places Status Indicator](#places-status-indicator)  
-🗂️ [User Themes](#user-themes)
+🗂️ [User Themes](#user-themes)  
+
+**Note**: **当扩展显示不兼容而无法使用时，执行** `gsettings set org.gnome.shell disable-extension-version-validation true` **禁用兼容性检查**
 
 ## 设置 (Settings)
 
