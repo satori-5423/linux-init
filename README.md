@@ -15,7 +15,7 @@
 🎨 [Bibata Modern Ice](https://www.pling.com/p/1197198/)  
 🎨 [Fluent](https://www.pling.com/p/1477941/)  
 🎨 [Orchis](https://www.pling.com/p/1357889/)  
-🎨 [Tela dark](https://www.pling.com/p/1279924/)  
+🎨 [Tela icon](https://www.pling.com/p/1279924/)  
 🎨 [Lycoris Recoil (GRUB)](https://www.pling.com/p/2143960/)
 
 ## 扩展 (Extensions)
