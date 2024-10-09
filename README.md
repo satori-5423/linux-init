@@ -13,6 +13,7 @@
 
 ## 主题 (Themes)
 🎨 [Bibata Modern Ice](https://www.pling.com/p/1197198/)  
+🎨 [Fluent](https://www.pling.com/p/1477941/)  
 🎨 [Orchis](https://www.pling.com/p/1357889/)  
 🎨 [Tela dark](https://www.pling.com/p/1279924/)  
 🎨 [Lycoris Recoil (GRUB)](https://www.pling.com/p/2143960/)
@@ -34,9 +35,9 @@
 ### 🔧 <span id="appearance"></span>外观 (Appearance)
 - **样式**
   - **光标**: `Bibata-Modern-Ice`
-  - **图标**: `Tela-dark`
+  - **图标**: `Tela`
   - **Shell**: `Orchis`
-  - **过时应用程序**: `Orchis`
+  - **过时应用程序**: `Fluent-Light`
 - **背景**
   - **调整**: `Zoom`
 
