@@ -50,6 +50,14 @@
 - **抗锯齿**: `标准（灰度）`
 - **缩放比例**: `1.20`
 
+### 🔧 <span id="others"></span>其他 (Others)
+- **Gnome Terminal**
+  - **终端起始尺寸**: `96列 26行`
+- **GRUB**
+  - **引导顺序**: **移动**`/etc/grub.d/30_os-prober`**到**`/etc/grub.d/08_os-prober`**以更改操作系统读取优先级**
+  - **系统名称**: **注释**`/etc/grub.d/08_os-prober`**中的**`onstr`**赋值语句以隐藏系统名称后尾随的**`(on ${DEVICE})`**字符串**
+  - **隐藏root用户登录项**: **将**`/var/lib/AccountsService/users/root`**中的**`[User] SystemAccount`**属性改为**`true`
+
 ### 🌀 <span id="apps-menu"></span>[Apps Menu](https://extensions.gnome.org/extension/6/applications-menu/)
 - 🚀 **GitLab**: [GNOME/gnome-shell-extensions](https://gitlab.gnome.org/GNOME/gnome-shell-extensions/)
 
