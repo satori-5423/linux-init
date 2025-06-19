@@ -38,4 +38,10 @@ sudo pacman -S --needed $include_pkgs
 sudo pacman -Rns $exclude_pkgs
 sudo pacman -U $(ls ./files/.cache/*)
 
+INIT_PATH=$(pwd)
+git clone https://github.com/vinceliuice/Orchis-theme.git
+cd Orchis-theme
+./install.sh
+cd $INIT_PATH
+
 paru -Syu --needed $(cat ./pkgs/aur)
