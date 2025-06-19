@@ -4,8 +4,8 @@ echo "Initializing..."
 
 sudo rm -rf /etc/pacman.d/mirrorlist
 sudo rm -rf /etc/pacman.conf
-sudo mv ./files/.config/mirrorlist /etc/pacman.d/mirrorlist
-sudo mv ./files/.config/pacman.conf /etc/pacman.conf
+sudo cp ./scripts/mirrorlist /etc/pacman.d/mirrorlist
+sudo cp ./scripts/pacman.conf /etc/pacman.conf
 sudo pacman -Syyu
 
 chmod +x ./scripts/install.sh
