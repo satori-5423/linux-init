@@ -14,6 +14,8 @@ chmod +x ./scripts/config.sh
 ./scripts/install.sh
 ./scripts/config.sh
 
+sudo systemctl enable gdm
+
 tar -xzvf ./scripts/Inoue-Takina.tar.gz --directory ./
 cd ./Inoue\ Takina/
 chmod +x ./install.sh
