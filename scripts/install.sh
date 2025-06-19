@@ -2,6 +2,8 @@
 
 ex_gnome=$(cat ./pkgs/del/gnome)
 
+exclude_pkgs="$ex_gnome"
+
 # exclude_pkgs=$(echo $ex_gnome | tr '\n' ',')
 
 # if [[ "$exclude_pkgs" =~ ,$ ]]; then
