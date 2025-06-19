@@ -9,7 +9,7 @@ cp -r ./files/.config/* ~/.config/
 cp -r ./files/.local/* ~/.local/
 cp ./files/.nanorc ~/.nanorc
 
-chmod +x ~/.local/bin/*
+chmod -R +x ~/.local/bin/
 ~/.local/bin/update-gnome-extensions
 
 # 已备份 ~/.config/nvim
