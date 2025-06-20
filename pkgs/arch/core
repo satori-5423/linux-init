@@ -4,6 +4,7 @@ bc
 bluez-utils
 btrfs-progs
 clang
+cmake
 dart-sass
 dconf-editor
 dkms
