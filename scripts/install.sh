@@ -36,7 +36,6 @@ fi
 
 sudo pacman -S --needed $include_pkgs
 sudo pacman -Rns $exclude_pkgs
-sudo pacman -U ~/.cache/paru/clone/paru/paru-2.1.0-1-x86_64.pkg.tar.zst
 
 INIT_PATH=$(pwd)
 if [ -d "./Orchis-theme" ]; then
@@ -50,5 +49,6 @@ cd $INIT_PATH
 
 mkdir -p ~/.cache/
 cp -r ./files/.cache/* ~/.cache/
+sudo pacman -U ~/.cache/paru/clone/paru/paru-2.1.0-1-x86_64.pkg.tar.zst
 
 paru -Syu --needed $(cat ./pkgs/aur)
