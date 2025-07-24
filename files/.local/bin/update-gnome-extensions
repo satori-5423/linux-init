@@ -42,13 +42,19 @@ declare -A extensions_repo=(
 
 install_unite() {
   echo "[+] 安装或更新 Unite"
-  local latest=null
-  for i in {1..10}; do
+
+  local cache_dir="$HOME/GitHub/gnome-extensions"
+  local latest=""
+  local retries=10
+
+  mkdir -p "$cache_dir"
+
+  for i in $(seq 1 $retries); do
     latest=$(curl -s https://api.github.com/repos/hardpixel/unite-shell/releases/latest | jq -r .tag_name)
     if [[ -n "$latest" && "$latest" != "null" ]]; then
       break
     fi
-    echo "等待获取 Unite 最新版本 ($i/10)..."
+    echo "等待获取 Unite 最新版本 ($i/$retries)..."
     sleep 1
   done
 
@@ -58,10 +64,30 @@ install_unite() {
   fi
 
   echo "获取最新版本: $latest"
-  cd "$EXT_DIR"
-  wget -O unite-latest.zip "https://github.com/hardpixel/unite-shell/releases/download/$latest/unite-$latest.zip"
-  gnome-extensions install --force unite-latest.zip
-  rm -f unite-latest.zip
+
+  local zip_name="unite-$latest.zip"
+  local zip_path="$cache_dir/$zip_name"
+
+  # 检查文件是否已经存在
+  if [[ -f "$zip_path" ]]; then
+    echo "发现已存在版本 $latest，跳过下载与安装"
+    return 0
+  fi
+
+  # 删除旧版本 zip 文件
+  echo "清理旧版本 zip 文件..."
+  rm -f "$cache_dir"/unite-*.zip
+
+  # 下载新版本
+  echo "下载 $zip_name..."
+  wget -O "$zip_path" "https://github.com/hardpixel/unite-shell/releases/download/$latest/$zip_name" || {
+    echo "❌ 下载失败"
+    return 1
+  }
+
+  # 安装扩展
+  echo "安装 Unite $latest..."
+  gnome-extensions install --force "$zip_path"
 }
 
 for name in "${!extensions_repo[@]}"; do
@@ -73,7 +99,7 @@ for name in "${!extensions_repo[@]}"; do
   fi
 
   if [[ "$name" == "Unite" ]]; then
-    install_unite
+    install_unite || echo "⚠️ Unite 安装失败，已跳过"
     continue
   fi
 
