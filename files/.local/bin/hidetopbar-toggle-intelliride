@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# 切换 enable-intellihide 设置
+current_value=$(dconf read /org/gnome/shell/extensions/hidetopbar/enable-intellihide)
+
+if [ $current_value == "true" ]; then
+    dconf write /org/gnome/shell/extensions/hidetopbar/enable-intellihide false
+else
+    dconf write /org/gnome/shell/extensions/hidetopbar/enable-intellihide true
+fi

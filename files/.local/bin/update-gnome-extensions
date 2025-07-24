@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+set -e
+
+check_dependencies() {
+  missing=()
+  for cmd in git make zip wget curl gnome-extensions just jq; do
+    if ! command -v "$cmd" &>/dev/null; then
+      missing+=("$cmd")
+    fi
+  done
+  if [ ${#missing[@]} -ne 0 ]; then
+    echo "❌ 缺少以下命令：${missing[*]}"
+    echo "请安装后重试"
+    exit 1
+  fi
+}
+check_dependencies
+
+EXT_DIR="$HOME/GitHub/gnome-extensions"
+mkdir -p "$EXT_DIR"
+
+declare -A extensions_install_cmd=(
+  ["Blur My Shell"]="make install"
+  ["Burn My Windows"]="make install"
+  ["Dash to Dock"]="make install"
+  ["Disable unredirect fullscreen windows"]=""
+  ["Hide Top Bar"]="make && gnome-extensions install --force ./hidetopbar.zip"
+  ["Logo Menu"]="make install"
+  ["Rounded Window Corners Reborn"]="just install"
+)
+
+declare -A extensions_repo=(
+  ["Blur My Shell"]="https://github.com/aunetx/blur-my-shell.git"
+  ["Burn My Windows"]="https://github.com/Schneegans/Burn-My-Windows.git"
+  ["Dash to Dock"]="https://github.com/micheleg/dash-to-dock.git"
+  ["Disable unredirect fullscreen windows"]="https://github.com/kazysmaster/gnome-shell-extension-disable-unredirect.git"
+  ["Hide Top Bar"]="https://gitlab.gnome.org/tuxor1337/hidetopbar.git"
+  ["Logo Menu"]="https://github.com/Aryan20/Logomenu.git"
+  ["Rounded Window Corners Reborn"]="https://github.com/flexagoon/rounded-window-corners.git"
+  ["Unite"]="https://github.com/hardpixel/unite-shell.git"
+)
+
+install_unite() {
+  echo "[+] 安装或更新 Unite"
+  local latest=null
+  for i in {1..10}; do
+    latest=$(curl -s https://api.github.com/repos/hardpixel/unite-shell/releases/latest | jq -r .tag_name)
+    if [[ -n "$latest" && "$latest" != "null" ]]; then
+      break
+    fi
+    echo "等待获取 Unite 最新版本 ($i/10)..."
+    sleep 1
+  done
+
+  if [[ -z "$latest" || "$latest" == "null" ]]; then
+    echo "❌ 获取 Unite 最新版本失败"
+    return 1
+  fi
+
+  echo "获取最新版本: $latest"
+  cd "$EXT_DIR"
+  wget -O unite-latest.zip "https://github.com/hardpixel/unite-shell/releases/download/$latest/unite-$latest.zip"
+  gnome-extensions install --force unite-latest.zip
+  rm -f unite-latest.zip
+}
+
+for name in "${!extensions_repo[@]}"; do
+  repo=${extensions_repo[$name]}
+  echo -e "\n===> 处理扩展: $name"
+  if [[ "$name" == "Disable unredirect fullscreen windows" ]]; then
+    ext=~/.local/share/gnome-shell/extensions; mkdir -p "$ext" && cd "$ext" && curl -LkSs https://api.github.com/repos/kazysmaster/gnome-shell-extension-disable-unredirect/tarball | tar -xvz --wildcards --strip 1 "kazysmaster-gnome-shell-extension-disable-unredirect-???????/unredirect@vaina.lt"
+    continue
+  fi
+
+  if [[ "$name" == "Unite" ]]; then
+    install_unite
+    continue
+  fi
+
+  dir_name=$(basename "$repo" .git)
+  local_dir="$EXT_DIR/$dir_name"
+
+  if [[ -d "$local_dir" ]]; then
+    echo "[+] 已存在，更新中: $dir_name"
+    git -C "$local_dir" pull
+  else
+    echo "[+] 克隆仓库: $repo"
+    git clone "$repo" "$local_dir"
+  fi
+
+  echo "[+] 安装中: $name"
+  bash -c "cd '$local_dir' && ${extensions_install_cmd[$name]}"
+done
+
+echo -e "\n所有扩展处理完毕。请重启 GNOME Shell 或注销后再登录以使扩展生效。"
