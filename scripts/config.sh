@@ -12,7 +12,6 @@ cp -r ./files/.themes/* ~/.themes/
 cp ./files/dotfiles/.* ~/
 
 chmod -R +x ~/.local/bin/
-~/.local/bin/update-gnome-extensions
 
 # Merge
 cp -r ./files/.local/share/gnome-shell/extensions/* ~/.local/share/gnome-shell/extensions/

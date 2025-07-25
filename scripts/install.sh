@@ -38,17 +38,17 @@ sudo pacman -S --needed $include_pkgs
 sudo pacman -Rns $exclude_pkgs
 
 INIT_PATH=$(pwd)
-if [ -d "./Orchis-theme" ]; then
+GITHUB_PATH="$HOME/GitHub"
+mkdir -p $GITHUB_PATH
+if [ -d "$GITHUB_PATH/Orchis-theme" ]; then
     git pull
 else
-    git clone https://github.com/vinceliuice/Orchis-theme.git
+    git clone https://github.com/vinceliuice/Orchis-theme.git "$GITHUB_PATH/Orchis-theme"
 fi
-cd Orchis-theme
+cd "$GITHUB_PATH/Orchis-theme"
 ./install.sh
 cd $INIT_PATH
 
-mkdir -p ~/.cache/
-cp -r ./files/.cache/* ~/.cache/
-sudo pacman -U ~/.cache/paru/clone/paru/paru-2.1.0-1-x86_64.pkg.tar.zst
+sudo pacman -U $(ls ./files/.cache/*)
 
 paru -Syu --needed $(cat ./pkgs/aur)
