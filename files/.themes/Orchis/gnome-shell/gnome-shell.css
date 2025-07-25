@@ -2607,8 +2607,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .input-source-switcher-symbol {
   font-size: 34pt;
-  width: 120px;
-  height: 110px;
+  width: 108px;
+  height: 108px;
 }
 
 .cycler-highlight {

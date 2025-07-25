@@ -10,8 +10,9 @@ sudo pacman -Syyu
 ./scripts/install.sh
 ./scripts/config.sh
 
-sudo cp ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
+cp ./pictures/icon.jpg ~/.face
 sudo cp ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
+sudo cp ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
 sudo systemctl enable gdm
 
 tar -xzvf ./scripts/Inoue-Takina.tar.gz --directory ./
