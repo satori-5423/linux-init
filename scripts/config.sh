@@ -11,8 +11,6 @@ cp -r ./files/.local/* ~/.local/
 cp -r ./files/.themes/* ~/.themes/
 cp ./files/dotfiles/.* ~/
 
-chmod -R +x ~/.local/bin/
-
 # Merge
 cp -r ./files/.local/share/gnome-shell/extensions/* ~/.local/share/gnome-shell/extensions/
 

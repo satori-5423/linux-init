@@ -7,12 +7,11 @@ sudo cp ./scripts/mirrorlist /etc/pacman.d/mirrorlist
 sudo cp ./scripts/pacman.conf /etc/pacman.conf
 sudo pacman -Syyu
 
-chmod +x ./scripts/install.sh
-chmod +x ./scripts/config.sh
-
 ./scripts/install.sh
 ./scripts/config.sh
 
+sudo cp ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
+sudo cp ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
 sudo systemctl enable gdm
 
 tar -xzvf ./scripts/Inoue-Takina.tar.gz --directory ./

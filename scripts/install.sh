@@ -20,18 +20,18 @@ game=$(cat ./pkgs/arch/game/wine)
 
 include_pkgs="$apps $core $fonts $other $group $game"
 
-read -p "CPU: AMD or Intel? (a/i): " amd_or_intel
-if [ "$amd_or_intel" = "a" ] || [ "$amd_or_intel" = "A" ]; then
-    include_pkgs="$include_pkgs amd-ucode"
-else
+read -p "CPU: AMD or Intel? (A/i): " amd_or_intel
+if [ "$amd_or_intel" = "i" ] || [ "$amd_or_intel" = "I" ]; then
     include_pkgs="$include_pkgs intel-ucode"
+else
+    include_pkgs="$include_pkgs amd-ucode"
 fi
 
-read -p "GPU: AMD or NVIDIA? (a/n): " amd_or_nvidia
-if [ "$amd_or_nvidia" = "a" ] || [ "$amd_or_nvidia" = "A" ]; then
-    include_pkgs="$include_pkgs $(cat ./pkgs/arch/game/amd)"
-else
+read -p "GPU: AMD or NVIDIA? (A/n): " amd_or_nvidia
+if [ "$amd_or_nvidia" = "n" ] || [ "$amd_or_nvidia" = "N" ]; then
     include_pkgs="$include_pkgs $(cat ./pkgs/arch/game/nvidia)"
+else
+    include_pkgs="$include_pkgs $(cat ./pkgs/arch/game/amd)"
 fi
 
 sudo pacman -S --needed $include_pkgs
