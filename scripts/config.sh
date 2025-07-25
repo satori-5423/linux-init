@@ -11,8 +11,12 @@ cp -r ./files/.local/* ~/.local/
 cp -r ./files/.themes/* ~/.themes/
 cp ./files/dotfiles/.* ~/
 
-# Merge
-cp -r ./files/.local/share/gnome-shell/extensions/* ~/.local/share/gnome-shell/extensions/
+read -p "Install GNOME extensions now? (Y/n): " yes_or_no
+if [ "$yes_or_no" = "y" ] || [ "$yes_or_no" = "Y" ] || [ "$yes_or_no" = "" ]; then
+    ~/.local/bin/update-gnome-extensions
+    # Merge
+    cp -r ./files/.local/share/gnome-shell/extensions/* ~/.local/share/gnome-shell/extensions/
+fi
 
 # 已备份 ~/.config/nvim
 # git clone https://github.com/LazyVim/starter ~/.config/nvim
