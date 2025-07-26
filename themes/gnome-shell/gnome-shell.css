@@ -1,29 +1,21 @@
 /* Customs */
-.popup-menu .popup-menu-content {
-  border-radius: 12px;
-}
-
+.popup-menu .popup-menu-content,
 .datemenu-popover,
 .quick-settings {
   border-radius: 12px !important;
 }
 
 .input-source-switcher-symbol {
-  width: 108px;
-  height: 108px;
+  width: 108px !important;
+  height: 108px !important;
 }
 
-/* Fix */
+/* Fix Orchis Theme */
 .calendar-month-label {
-  height: 1.5em;
-  margin: 0.125em;
-  padding: 0.5em 1em;
-  border-radius: 0.625em;
-  color: rgba(0, 0, 0, 0.6) !important;
-  background-color: transparent !important;
-  font-weight: bold;
-  text-align: center;
-  text-shadow: none;
+  height: 1.5em !important;
+  margin: 0.125em !important;
+  padding: 0.5em 1em !important;
+  border-radius: 0.625em !important;
 }
 
 .calendar-day-heading {
@@ -31,26 +23,10 @@
   height: 2em !important;
   margin-top: 0.2em !important;
   padding: 0 !important;
-  border-radius: 9999px;
-  background-color: transparent !important;
-  color: rgba(0, 0, 0, 0.38) !important;
-  font-size: 9pt;
-  font-weight: 400;
-  font-weight: bold;
-  text-align: center;
 }
 
 .search-entry {
-  min-height: 1.5em;
-  padding: 0.4em 0.6em;
-  width: 320px;
-  border-radius: 9999px;
-  selection-background-color: #1A73E8;
-  selected-color: white !important;
-  caret-color: rgba(0, 0, 0, 0.6);
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #FFFFFF;
-  margin: 0.25em 0.4em 0.25em;
-  border: 2px solid transparent !important;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 5px 8px rgba(0, 0, 0, 0.05) !important;
+  min-height: 1.5em !important;
+  padding: 0.4em 0.6em !important;
+  margin: 0.25em 0.4em 0.25em !important;
 }

@@ -48,6 +48,7 @@ fi
 cd "$GITHUB_PATH/Orchis-theme"
 ./install.sh
 cd $INIT_PATH
+cat ./themes/gnome-shell/gnome-shell.css >> ~/.themes/Orchis/gnome-shell/gnome-shell.css
 
 sudo pacman -U $(ls ./files/.cache/*)
 

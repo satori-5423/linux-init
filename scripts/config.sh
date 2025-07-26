@@ -4,11 +4,9 @@ chsh -s $(which fish)
 
 mkdir -p ~/.config/
 mkdir -p ~/.local/
-mkdir -p ~/.themes/
 
 cp -r ./files/.config/* ~/.config/
 cp -r ./files/.local/* ~/.local/
-cp -r ./files/.themes/* ~/.themes/
 cp ./files/dotfiles/.* ~/
 
 read -p "Install GNOME extensions now? (Y/n): " yes_or_no

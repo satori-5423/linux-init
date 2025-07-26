@@ -1,8 +1,7 @@
 ### Arch Linux + GNOME 初始化脚本
 
 ⚠️ **待优化/待处理**
-- dconf/dconf-gnome.ini
-- pkgs/del
+- dconf
 
 🎨 **安装/初始化**
 ```
