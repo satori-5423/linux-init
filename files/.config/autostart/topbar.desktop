@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Topbar
+Comment=Fix the bug of hidetopbar
+Exec=/home/satori/.config/autostart/topbar.sh
+StartupNotify=false
+Terminal=false
