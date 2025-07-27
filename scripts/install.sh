@@ -1,15 +1,5 @@
 #!/bin/bash
 
-ex_gnome=$(< ./pkgs/del/gnome)
-
-exclude_pkgs="$ex_gnome"
-
-# exclude_pkgs=$(echo $ex_gnome | tr '\n' ',')
-
-# if [[ "$exclude_pkgs" =~ ,$ ]]; then
-#     exclude_pkgs="${exclude_pkgs%?}"
-# fi
-
 apps=$(< ./pkgs/arch/apps)
 core=$(< ./pkgs/arch/core)
 fonts=$(< ./pkgs/arch/fonts)
@@ -41,7 +31,6 @@ case "$amd_or_nvidia" in
 esac
 
 sudo pacman -S --needed $include_pkgs
-sudo pacman -Rns $exclude_pkgs
 
 INIT_PATH=$(pwd)
 GITHUB_PATH="$HOME/GitHub"

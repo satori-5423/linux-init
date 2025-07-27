@@ -15,11 +15,13 @@ sudo cp ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
 sudo cp ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
 sudo systemctl enable gdm
 
-tar -xzvf ./scripts/Inoue-Takina.tar.gz --directory ./
-cd ./Inoue\ Takina/
+INIT_PATH=$(pwd)
+tar -xzvf ./scripts/Inoue-Takina.tar.gz --directory "$INIT_PATH"
+cd "$INIT_PATH/Inoue Takina/"
 chmod +x ./install.sh
 sudo ./install.sh
-rm -rf ./Inoue\ Takina/
+cd "$INIT_PATH"
+rm -rf "./Inoue Takina/"
 
 echo "Done"
 echo "Please restart your computer"
