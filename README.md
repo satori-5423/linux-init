@@ -1,7 +1,7 @@
 ### Arch Linux + GNOME 初始化脚本
 
 ⚠️ **待优化/待处理**
-- dconf
+- dconf/dconf-gdm.ini
 
 🎨 **安装/初始化**
 ```
