@@ -2,17 +2,17 @@
 
 echo "Initializing..."
 
-sudo cp ./scripts/locale.conf /etc/locale.conf
-sudo cp ./scripts/mirrorlist /etc/pacman.d/mirrorlist
-sudo cp ./scripts/pacman.conf /etc/pacman.conf
-sudo pacman -Syyu
+sudo cp -v ./scripts/locale.conf /etc/locale.conf
+sudo cp -v ./scripts/mirrorlist /etc/pacman.d/mirrorlist
+sudo cp -v ./scripts/pacman.conf /etc/pacman.conf
+sudo pacman -Syyu --noconfirm
 
 ./scripts/install.sh
 ./scripts/config.sh
 
-cp ./pictures/icon.jpg ~/.face
-sudo cp ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
-sudo cp ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
+cp -v ./pictures/icon.jpg ~/.face
+sudo cp -v ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
+sudo cp -v ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
 sudo systemctl enable gdm
 
 INIT_PATH=$(pwd)
@@ -21,7 +21,7 @@ cd "$INIT_PATH/Inoue Takina/"
 chmod +x ./install.sh
 sudo ./install.sh
 cd "$INIT_PATH"
-rm -rf "./Inoue Takina/"
+rm -rfv "./Inoue Takina/"
 
 echo "Done"
 echo "Please restart your computer"
