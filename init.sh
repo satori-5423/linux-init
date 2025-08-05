@@ -10,8 +10,8 @@ sudo pacman -Syyu --noconfirm
 ./scripts/install.sh
 ./scripts/config.sh
 
-cp -v ./pictures/icon.jpg ~/.face
-sudo cp -v ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
+# cp -v ./pictures/icon.jpg ~/.face
+# sudo cp -v ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
 sudo cp -v ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
 sudo systemctl enable gdm
 

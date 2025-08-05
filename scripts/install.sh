@@ -1,32 +1,30 @@
 #!/bin/bash
 
-apps=$(< ./pkgs/arch/apps)
-core=$(< ./pkgs/arch/core)
-fonts=$(< ./pkgs/arch/fonts)
-other=$(< ./pkgs/arch/other)
+include_pkgs=$(cat ./pkgs/arch/{apps,core,fonts,other,group/*,game/wine})
 
-group=$(< ./pkgs/arch/group/*)
-game=$(< ./pkgs/arch/game/wine)
-
-include_pkgs="$apps $core $fonts $other $group $game"
-
-read -p "CPU: AMD or Intel? (A/i): " amd_or_intel
-case "$amd_or_intel" in
-    [iI])
+vendor=$(grep -m1 'vendor_id' /proc/cpuinfo | awk '{print $3}')
+case "$vendor" in
+    GenuineIntel)
         include_pkgs+=" intel-ucode"
         ;;
-    *)
+    AuthenticAMD)
         include_pkgs+=" amd-ucode"
+        ;;
+    *)
+        echo "Warning: Unknown CPU vendor: $vendor"
         ;;
 esac
 
-read -p "GPU: AMD or NVIDIA? (A/n): " amd_or_nvidia
-case "$amd_or_nvidia" in
-    [nN])
+gpu_vendor=$(lspci | grep -E "VGA|3D" | grep -oE 'AMD|NVIDIA' | head -n1)
+case "$gpu_vendor" in
+    NVIDIA)
         include_pkgs+=" $(< ./pkgs/arch/game/nvidia)"
         ;;
-    *)
+    AMD)
         include_pkgs+=" $(< ./pkgs/arch/game/amd)"
+        ;;
+    *)
+        echo "Warning: Unknown or unsupported GPU vendor: $gpu_vendor"
         ;;
 esac
 

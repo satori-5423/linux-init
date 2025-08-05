@@ -26,9 +26,11 @@ linux-headers
 man-db
 man-pages
 man-pages-zh_cn
+meson
 nano
 networkmanager
 network-manager-applet
+nkf
 npm
 ntfs-3g
 os-prober
@@ -49,5 +51,7 @@ vulkan-tools
 wget
 wireless_tools
 wireplumber
+yazi
+zed
 zip
 zram-generator
