@@ -5,9 +5,11 @@ if status is-interactive
 end
 
 function tray
-    trayer --edge top --widthtype request --transparent true --alpha 0
-    # About Gtk-WARNING
-    # sudo pacman -S gtk-engine-murrine gnome-themes-extra
+    if contains appindicatorsupport@rgcjonas.gmail.com (gnome-extensions list --enabled)
+        gnome-extensions disable appindicatorsupport@rgcjonas.gmail.com
+    else
+        gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
+    end
 end
 
 # pnpm
