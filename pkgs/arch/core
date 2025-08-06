@@ -44,7 +44,6 @@ rust
 rust-src
 sassc
 timeshift
-tmux
 tree
 vulkan-tools
 wget
@@ -52,5 +51,6 @@ wireless_tools
 wireplumber
 yazi
 zed
+zellij
 zip
 zram-generator
