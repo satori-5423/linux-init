@@ -10,6 +10,10 @@ sudo pacman -Syyu --noconfirm
 ./scripts/install.sh
 ./scripts/config.sh
 
+# Fix bug with Kitty `hide_window_decorations yes` in Wayland session
+mkdir -p ~/.config/environment.d/
+echo "KITTY_DISABLE_WAYLAND=1" >> ~/.config/environment.d/kitty.conf
+
 # cp -v ./pictures/icon.jpg ~/.face
 # sudo cp -v ./pictures/icon.jpg "/var/lib/AccountsService/icons/$(whoami)"
 sudo cp -v ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
