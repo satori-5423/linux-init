@@ -1,7 +1,10 @@
 ### Arch Linux + GNOME 初始化脚本
 
 ⚠️ **待优化/待处理**
-- dconf/dconf-gdm.ini
+- Dconf (待分层结构化)
+- Fluent theme (待移除)
+- Google Chrome (迁移至Zen Browser)
+- GNOME Extensions (需要更新)
 
 🎨 **安装/初始化**
 ```
