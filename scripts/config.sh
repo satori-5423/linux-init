@@ -28,6 +28,3 @@ else
     dconf load /org/gnome/ < ./dconf/dconf-gnome.ini
 fi
 ## sudo -u gdm DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/120/bus dconf load / < ./dconf/dconf-gdm.ini
-
-mkdir -p ~/.config/Cursor/User
-mv -v ~/.config/settings.json ~/.config/Cursor/User/settings.json
