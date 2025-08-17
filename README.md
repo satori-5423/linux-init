@@ -7,6 +7,8 @@
 
 🎨 **安装/初始化**
 ```
+git clone https://github.com/satori-5423/linux-init.git
+cd ./linux-init
 ./init.sh
 ```
 
