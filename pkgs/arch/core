@@ -43,7 +43,7 @@ ruby
 rust
 rust-src
 sassc
-timeshift
+snapper
 tree
 vulkan-tools
 wget
@@ -54,3 +54,5 @@ zed
 zellij
 zip
 zram-generator
+linux-zen
+linux-zen-headers

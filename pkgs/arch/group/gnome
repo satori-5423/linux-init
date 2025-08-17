@@ -1,5 +1,4 @@
 baobab
-evince
 gdm
 gnome-backgrounds
 gnome-characters
@@ -33,11 +32,11 @@ loupe
 nautilus
 orca
 rygel
-sushi
 tecla
 xdg-desktop-portal-gnome
 xdg-user-dirs-gtk
 yelp
+resources
 gnome-shell-extensions
 gnome-tweaks
 xdg-utils
