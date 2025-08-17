@@ -20,6 +20,8 @@ sudo pacman -Syyu --noconfirm
 sudo cp -v ./pictures/archlinux-logo-text.png /usr/share/pixmaps/archlinux-logo-text.png
 sudo systemctl enable gdm
 
+sudo snapper -c root create-config /
+
 INIT_PATH=$(pwd)
 tar -xzvf ./scripts/Inoue-Takina.tar.gz --directory "$INIT_PATH"
 cd "$INIT_PATH/Inoue Takina/"
