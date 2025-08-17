@@ -73,7 +73,7 @@
         },
 
         {
-            "type": "lm",
+            "type": "vulkan",
             "key": "╰─󰧨 ",
             "keyColor": "yellow"
         },

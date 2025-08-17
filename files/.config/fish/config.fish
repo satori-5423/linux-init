@@ -1,6 +1,9 @@
+## set -g fish_greeting ''
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set -x PATH "$HOME/.local/bin:$PATH"
+    set -x EDITOR /usr/bin/nvim
     alias icat "kitty +kitten icat"
 end
 
@@ -10,6 +13,11 @@ function tray
     else
         gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
     end
+end
+
+function clear
+    command clear
+    printf "\033[3J"
 end
 
 # pnpm
