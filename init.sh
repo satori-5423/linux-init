@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Check if running as root
+if [ "$(id -u)" -eq 0 ]; then
+  echo -e "\033[1;31mError: Do not run this script as root. Please use a normal user.\033[0m"
+  exit 1
+fi
 
 echo "Initializing..."
 

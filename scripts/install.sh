@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 include_pkgs=$(cat ./pkgs/arch/{apps,core,fonts,other,group/*,game/wine})
 

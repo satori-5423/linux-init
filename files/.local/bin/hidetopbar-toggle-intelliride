@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # 切换 enable-intellihide 设置
 current_value=$(dconf read /org/gnome/shell/extensions/hidetopbar/enable-intellihide)
